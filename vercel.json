@@ -1,0 +1,105 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "public/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "api/**/*.py",
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize": "50mb" }
+    }
+  ],
+  "routes": [
+    {
+      "src": "^/api/(.*)$",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "^/app$",
+      "dest": "/public/app.html"
+    },
+    {
+      "src": "^/$",
+      "dest": "/public/index.html"
+    },
+    {
+      "handle": "filesystem"
+    }
+  ],
+  "installCommand": "echo \"Skipping Python dependencies install\"",
+  "functions": {
+    "api/*.py": {
+      "runtime": "python3.9"
+    }
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options", 
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    }
+  ],
+  "env": {
+    "SUPABASE_URL": "https://ybnuvynffxsibplhafad.supabase.co",
+    "SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlibnV2eW5mZnhzaWJwbGhhZmFkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY2NjUzNDYsImV4cCI6MjA3MjI0MTM0Nn0.rMiJdb3rOCeSQ4rZcoxT17X3TwkeYc84c1c65_mUNTk",
+    "NEXT_PUBLIC_SUPABASE_URL": "https://ybnuvynffxsibplhafad.supabase.co",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlibnV2eW5mZnhzaWJwbGhhZmFkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY2NjUzNDYsImV4cCI6MjA3MjI0MTM0Nn0.rMiJdb3rOCeSQ4rZcoxT17X3TwkeYc84c1c65_mUNTk",
+    "OPENROUTER_API_KEY": "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",
+    "PAYPAL_CLIENT_ID": "AZK-Ub2zT6PP9Rxvhkem_G6i2xZb8QLw0xxSV-o7VxjtGdIE6fd5PogsMpTwB-QOWI0_MMBy9tijYMCg",
+    "PAYPAL_CLIENT_SECRET": "EKyIvJ6ALQx7pVy8an0RhRKfYrQW5AEOWhMw-qvFpruKhqZ3TCAf2xjwmM0JkNmCN_9ekHTtqRQw_MIk",
+    "PAYPAL_MODE": "sandbox",
+    "NEXT_PUBLIC_PAYPAL_CLIENT_ID": "AZK-Ub2zT6PP9Rxvhkem_G6i2xZb8QLw0xxSV-o7VxjtGdIE6fd5PogsMpTwB-QOWI0_MMBy9tijYMCg",
+    "NEXT_PUBLIC_PAYPAL_MODE": "sandbox",
+    "ENCRYPTION_MASTER_KEY": "V9mQH8p3rK1xT7aZ4bY6NwL2sE5cJ0Df",
+    "BUSINESS_EMAIL": "mahavishnutechsolutions@gmail.com",
+    "BUSINESS_PHONE": "+919546233464",
+    "SUPPORT_EMAIL": "mahavishnutechsolutions@gmail.com",
+    "JWT_SECRET": "ScriptOracle2025JWTSecretKey789",
+    "API_RATE_LIMIT_PER_HOUR": "100",
+    "CUSTOM_DOMAIN": "scriptoracle.com"
+  },
+  "rewrites": [
+    {
+      "source": "/docs",
+      "destination": "/api/docs"
+    },
+    {
+      "source": "/models",
+      "destination": "/api/models"
+    },
+    {
+      "source": "/analytics", 
+      "destination": "/api/analytics"
+    },
+    {
+      "source": "/tiers",
+      "destination": "/api/tiers"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/github",
+      "destination": "https://github.com/shahiabhay111-Valkarion/Script-Oracle",
+      "permanent": false
+    },
+    {
+      "source": "/download",
+      "destination": "https://github.com/shahiabhay111-Valkarion/Script-Oracle/releases/latest",
+      "permanent": false
+    }
+  ]
+}
