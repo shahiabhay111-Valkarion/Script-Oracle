@@ -1,0 +1,52 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "public/app.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "public/index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "api/**/*.py",
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize": "50mb" }
+    }
+  ],
+  "routes": [
+    {
+      "src": "^/api/(.*)$",
+      "dest": "/api/$1.py"
+    },
+    {
+      "src": "^/app$",
+      "dest": "/app.html"
+    },
+    {
+      "src": "^/$",
+      "dest": "/index.html"
+    },
+    {
+      "handle": "filesystem"
+    }
+  ],
+  "installCommand": "echo \"Skipping Python dependencies install\"",
+  "env": {
+    "SUPABASE_URL": "https://ybnuvynffxsibplhafad.supabase.co",
+    "SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlibnV2eW5mZnhzaWJwbGhhZmFkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY2NjUzNDYsImV4cCI6MjA3MjI0MTM0Nn0.rMiJdb3rOCeSQ4rZcoxT17X3TwkeYc84c1c65_mUNTk",
+    "NEXT_PUBLIC_SUPABASE_URL": "https://ybnuvynffxsibplhafad.supabase.co",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlibnV2eW5mZnhzaWJwbGhhZmFkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY2NjUzNDYsImV4cCI6MjA3MjI0MTM0Nn0.rMiJdb3rOCeSQ4rZcoxT17X3TwkeYc84c1c65_mUNTk",
+    "OPENROUTER_API_KEY": "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",
+    "PAYPAL_CLIENT_ID": "AZK-Ub2zT6PP9Rxvhkem_G6i2xZb8QLw0xxSV-o7VxjtGdIE6fd5PogsMpTwB-QOWI0_MMBy9tijYMCg",
+    "PAYPAL_CLIENT_SECRET": "EKyIvJ6ALQx7pVy8an0RhRKfYrQW5AEOWhMw-qvFpruKhqZ3TCAf2xjwmM0JkNmCN_9ekHTtqRQw_MIk",
+    "PAYPAL_MODE": "live",
+    "NEXT_PUBLIC_PAYPAL_CLIENT_ID": "AZK-Ub2zT6PP9Rxvhkem_G6i2xZb8QLw0xxSV-o7VxjtGdIE6fd5PogsMpTwB-QOWI0_MMBy9tijYMCg",
+    "NEXT_PUBLIC_PAYPAL_MODE": "EKyIvJ6ALQx7pVy8an0RhRKfYrQW5AEOWhMw-qvFpruKhqZ3TCAf2xjwmM0JkNmCN_9ekHTtqRQw_MIk",
+    "ENCRYPTION_MASTER_KEY": "V9mQH8p3rK1xT7aZ4bY6NwL2sE5cJ0Df",
+    "BUSINESS_EMAIL": "mahavishnusteelsandresiduals@gmail.com",
+    "BUSINESS_PHONE": "+91 9546233464",
+    "SUPPORT_EMAIL": "mahavishnutechsolutions@gmail.com"
+  }
+}
