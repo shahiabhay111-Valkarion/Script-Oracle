@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔱 Script Oracle - Online Console</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e9f0ff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: 
+                radial-gradient(1px 1px at 25px 35px, #fff, transparent),
+                radial-gradient(1px 1px at 75px 85px, rgba(255,255,255,0.6), transparent),
+                radial-gradient(2px 2px at 125px 45px, #eee, transparent);
+            background-repeat: repeat;
+            background-size: 150px 150px;
+            animation: twinkle 15s linear infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+
+        .wrap {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 24px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem 0;
+        }
+
+        .oracle-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px #4a90e2;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .main-title {
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #4a90e2, #6db3f2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #91a7c0;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .nav-buttons {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .nav-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #16213e, #1a1a2e);
+            color: #4a90e2;
+            padding: 10px 20px;
+            margin: 0 8px;
+            border-radius: 25px;
+            text-decoration: none;
+            border: 1px solid #4a90e2;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: linear-gradient(45deg, #4a90e2, #6db3f2);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .card {
+            background: rgba(15, 26, 54, 0.9);
+            border: 1px solid rgba(74, 144, 226, 0.3);
+            border-radius: 15px;
+            padding: 24px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .card h3 {
+            color: #4a90e2;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #4a90e2, #6db3f2);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 8px 8px 8px 0;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+        }
+
+        .btn.secondary {
+            background: linear-gradient(45deg, #28a745, #20c997);
+        }
+
+        .btn.danger {
+            background: linear-gradient(45deg, #dc3545, #fd7e14);
+        }
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            background: rgba(11, 22, 48, 0.8);
+            color: #e9f0ff;
+            border: 1px solid rgba(74, 144, 226, 0.4);
+            border-radius: 10px;
+            padding: 16px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+            resize: vertical;
+            margin-top: 8px;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #4a90e2;
+            box-shadow: 0 0 10px rgba(74, 144, 226, 0.3);
+        }
+
+        .output {
+            white-space: pre-wrap;
+            background: rgba(11, 22, 48, 0.9);
+            border: 1px solid rgba(74, 144, 226, 0.3);
+            border-radius: 10px;
+            padding: 16px;
+            min-height: 140px;
+            margin-top: 12px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            overflow-x: auto;
+        }
+
+        label {
+            display: block;
+            margin: 16px 0 8px;
+            color: #9fc5ff;
+            font-weight: 500;
+        }
+
+        .muted {
+            color: #91a7c0;
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .status-active { background: #28a745; }
+        .status-warning { background: #ffc107; }
+        .status-error { background: #dc3545; }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .promo-section {
+            background: linear-gradient(45deg, rgba(74, 144, 226, 0.1), rgba(40, 167, 69, 0.1));
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .promo-code {
+            display: inline-block;
+            background: rgba(74, 144, 226, 0.2);
+            padding: 6px 12px;
+            margin: 4px;
+            border-radius: 15px;
+            font-family: monospace;
+            font-weight: bold;
+            border: 1px solid #4a90e2;
+            font-size: 0.9rem;
+        }
+
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .wrap { padding: 16px; }
+            .main-title { font-size: 2rem; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .nav-btn { display: block; margin: 8px auto; width: fit-content; }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    
+    <div class="wrap">
+        <div class="header">
+            <div class="oracle-icon">🔮</div>
+            <h1 class="main-title">Script Oracle Console</h1>
+            <p class="subtitle">Divine Debugging Interface - Lite Web Version</p>
+            
+            <div class="nav-buttons">
+                <a href="/" class="nav-btn">🏠 Home</a>
+                <a href="/api/hello" class="nav-btn" target="_blank">🔗 API Health</a>
+                <a href="https://github.com/shahiabhay111-Valkarion/Script-Oracle/releases/latest" class="nav-btn">⬇️ Full Desktop App</a>
+            </div>
+        </div>
+
+        <div class="feature-grid">
+            <div class="card">
+                <h3>🌟 System Status</h3>
+                <div style="margin: 12px 0;">
+                    <span class="status-indicator status-active"></span>
+                    <strong>API Status:</strong> <span id="apiStatus">Checking...</span>
+                </div>
+                <button class="btn" id="btnPing">Ping Health Endpoint</button>
+                <button class="btn secondary" onclick="location.reload()">Refresh Page</button>
+                <div id="pingOutput" class="output" style="display: none;"></div>
+                <p class="muted">Real-time status of Script Oracle's divine endpoints.</p>
+            </div>
+
+            <div class="card">
+                <h3>🔍 Quick Code Analysis</h3>
+                <label for="codeInput">Paste your code snippet (Python, JavaScript, etc.)</label>
+                <textarea id="codeInput" placeholder="# Example: Paste a small code snippet here
+def fibonacci(n):
+    if n <= 1:
+        return n
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+
+print(fibonacci(10))"></textarea>
+                <button class="btn" id="btnAnalyze">🚀 Run Analysis</button>
+                <button class="btn secondary" id="btnClear">🧹 Clear</button>
+                <div id="analysisOutput" class="output"></div>
+                <p class="muted">Demo analysis using basic patterns. Full AI models available in desktop app.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>🎭 Sacred Avatars & Tiers</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 16px 0;">
+                <div style="text-align: center; padding: 16px; background: rgba(205, 127, 50, 0.1); border-radius: 10px; border: 1px solid #cd7f32;">
+                    <div style="font-size: 2rem;">🥉</div>
+                    <strong>Bronze - Valkarion</strong>
+                    <p class="muted">5 uses/day • Basic cleansing</p>
+                </div>
+                <div style="text-align: center; padding: 16px; background: rgba(40, 167, 69, 0.1); border-radius: 10px; border: 1px solid #28a745;">
+                    <div style="font-size: 2rem;">✨</div>
+                    <strong>Trial - Spirit Guide</strong>
+                    <p class="muted">30 total uses • Enhanced power</p>
+                </div>
+                <div style="text-align: center; padding: 16px; background: rgba(192, 192, 192, 0.1); border-radius: 10px; border: 1px solid #c0c0c0;">
+                    <div style="font-size: 2rem;">🥈</div>
+                    <strong>Silver - Ethereal Sage</strong>
+                    <p class="muted">30/month • Deep analysis</p>
+                </div>
+                <div style="text-align: center; padding: 16px; background: rgba(255, 215, 0, 0.1); border-radius: 10px; border: 1px solid #ffd700;">
+                    <div style="font-size: 2rem;">🥇</div>
+                    <strong>Gold - Cosmic Oracle</strong>
+                    <p class="muted">Unlimited • Divine optimization</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="/api/tiers" class="btn" target="_blank">📊 View Tier Details</a>
+                <a href="/api/analytics" class="btn secondary" target="_blank">📈 Usage Analytics</a>
+            </div>
+        </div>
+
+        <div class="promo-section">
+            <h3 style="color: #4a90e2; margin-bottom: 1rem;">🎁 Active Promo Codes</h3>
+            <p>Use these mystical codes to unlock divine power:</p>
+            <div style="margin: 16px 0;">
+                <span class="promo-code">WELCOME10</span>
+                <span class="promo-code">BOOST5</span>
+                <span class="promo-code">SILVER2024</span>
+                <span class="promo-code">NEWUSER</span>
+                <span class="promo-code">ORACLE2024</span>
+            </div>
+            <p class="muted">Enter these codes in the desktop app or full web interface for bonuses.</p>
+        </div>
+
+        <div class="card">
+            <h3>🖥️ Full Desktop Experience</h3>
+            <p>This web console provides basic functionality. For the complete Script Oracle experience with:</p>
+            <ul style="margin: 16px 0; padding-left: 24px; line-height: 1.7;">
+                <li><strong>Hybrid AI Engine</strong> - XGBoost + PyTorch + DeepSeek-R1</li>
+                <li><strong>Full GUI</strong> - Complete PyQt5 interface with all avatars</li>
+                <li><strong>File Processing</strong> - Upload and analyze entire codebases</li>
+                <li><strong>Offline Mode</strong> - Work without internet connection</li>
+                <li><strong>Advanced Analytics</strong> - Detailed reporting and insights</li>
+                <li><strong>Encryption</strong> - Secure local data storage</li>
+            </ul>
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="https://github.com/shahiabhay111-Valkarion/Script-Oracle/releases/latest" class="btn danger">⬇️ Download Desktop App</a>
+                <a href="/" class="btn">🏠 Return to Homepage</a>
+            </div>
+            <p class="muted" style="text-align: center; margin-top: 12px;">Desktop app includes all Python modules and full offline capabilities.</p>
+        </div>
+
+        <div style="text-align: center; margin: 40px 0; padding: 20px; border-top: 1px solid rgba(74, 144, 226, 0.3);">
+            <p style="color: #91a7c0;">© 2025 Script Oracle - Divine Debugger</p>
+            <p style="color: #91a7c0; margin-top: 8px;">May your code be forever optimized ⚡✨</p>
+        </div>
+    </div>
+
+    <script>
+        // API Status Check
+        async function checkApiStatus() {
+            const statusEl = document.getElementById('apiStatus');
+            const indicator = document.querySelector('.status-indicator');
+            
+            try {
+                const response = await fetch('/api/hello');
+                if (response.ok) {
+                    statusEl.textContent = 'Online';
+                    indicator.className = 'status-indicator status-active';
+                } else {
+                    statusEl.textContent = 'Limited';
+                    indicator.className = 'status-indicator status-warning';
+                }
+            } catch (error) {
+                statusEl.textContent = 'Offline';
+                indicator.className = 'status-indicator status-error';
+            }
+        }
+
+        // Ping Health Endpoint
+        document.getElementById('btnPing').onclick = async () => {
+            const output = document.getElementById('pingOutput');
+            const btn = document.getElementById('btnPing');
+            
+            btn.classList.add('loading');
+            btn.textContent = 'Pinging...';
+            output.style.display = 'block';
+            output.textContent = 'Checking divine endpoints...';
+            
+            try {
+                const response = await fetch('/api/hello');
+                const data = await response.json();
+                output.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                output.textContent = `Connection failed: ${error.message}`;
+            }
+            
+            btn.classList.remove('loading');
+            btn.textContent = 'Ping Health Endpoint';
+        };
+
+        // Code Analysis (Demo)
+        document.getElementById('btnAnalyze').onclick = async () => {
+            const code = document.getElementById('codeInput').value;
+            const output = document.getElementById('analysisOutput');
+            const btn = document.getElementById('btnAnalyze');
+            
+            if (!code.trim()) {
+                output.textContent = 'Please enter some code to analyze.';
+                return;
+            }
+            
+            btn.classList.add('loading');
+            btn.textContent = 'Analyzing...';
+            output.textContent = 'Running divine analysis...';
+            
+            // Simulate analysis with basic pattern detection
+            setTimeout(() => {
+                const analysis = performBasicAnalysis(code);
+                output.textContent = JSON.stringify(analysis, null, 2);
+                btn.classList.remove('loading');
+                btn.textContent = '🚀 Run Analysis';
+            }, 1500);
+        };
+
+        // Clear Code
+        document.getElementById('btnClear').onclick = () => {
+            document.getElementById('codeInput').value = '';
+            document.getElementById('analysisOutput').textContent = '';
+        };
+
+        // Basic Code Analysis (Demo Implementation)
+        function performBasicAnalysis(code) {
+            const lines = code.split('\\n');
+            const analysis = {
+                status: 'success',
+                engine: 'Demo Pattern Matcher',
+                timestamp: new Date().toISOString(),
+                metrics: {
+                    total_lines: lines.length,
+                    non_empty_lines: lines.filter(line => line.trim()).length,
+                    comment_lines: lines.filter(line => line.trim().startsWith('#') || line.trim().startsWith('//')).length
+                },
+                patterns: [],
+                suggestions: []
+            };
+
+            // Basic pattern detection
+            if (code.includes('def ') || code.includes('function ')) {
+                analysis.patterns.push('Function definitions detected');
+            }
+            if (code.includes('for ') || code.includes('while ')) {
+                analysis.patterns.push('Loop structures found');
+            }
+            if (code.includes('if ') || code.includes('else')) {
+                analysis.patterns.push('Conditional logic present');
+            }
+            if (code.includes('import ') || code.includes('#include')) {
+                analysis.patterns.push('External dependencies imported');
+            }
+
+            // Basic suggestions
+            if (analysis.metrics.comment_lines === 0) {
+                analysis.suggestions.push('Consider adding comments for better documentation');
+            }
+            if (code.length > 500) {
+                analysis.suggestions.push('Large code block - consider splitting into functions');
+            }
+            if (!/\\n\\s*$/.test(code)) {
+                analysis.suggestions.push('Add a newline at the end of the file');
+            }
+
+            analysis.message = 'Basic analysis complete. For advanced AI-powered analysis with XGBoost + PyTorch + DeepSeek-R1, use the desktop app.';
+            
+            return analysis;
+        }
+
+        // Initialize
+        checkApiStatus();
+        
+        // Auto-refresh status every 30 seconds
+        setInterval(checkApiStatus, 30000);
+    </script>
+</body>
+</html>
