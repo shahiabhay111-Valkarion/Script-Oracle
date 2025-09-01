@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "public/**/*", "use": "@vercel/static" },
+    { "src": "api/**/*.py",   "use": "@vercel/python" }
+  ],
+  "routes": [
+    { "src": "^/api/(.*)$", "dest": "/api/$1.py" },
+    { "src": "^/app$",       "dest": "/app.html" },
+    { "src": "^/(.*)$",      "dest": "/index.html" }
+  ],
+  "installCommand": "echo \"Skipping Python dependencies install\"",
+  "env": {
+    "SUPABASE_URL":             "https://ybnuvynffxsibplhafad.supabase.co",
+    "SUPABASE_ANON_KEY":        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.…",
+    "NEXT_PUBLIC_SUPABASE_URL": "https://ybnuvynffxsibplhafad.supabase.co",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.…",
+    "OPENROUTER_API_KEY":       "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",
+    "PAYPAL_CLIENT_ID":         "AZK-Ub2zT6PP9Rxvhkem_G6i2xZb8QLw0…",
+    "PAYPAL_CLIENT_SECRET":     "EKyIvJ6ALQx7pVy8an0RhRKfYrQW5AEOWhMw-qvFpruKhqZ3TCAf2xjwmM0JkNmCN_9ekHTtqRQw_MIk",
+    "PAYPAL_MODE":              "sandbox",
+    "NEXT_PUBLIC_PAYPAL_CLIENT_ID": "AZK-Ub2zT6PP9Rxvhkem_G6i2xZb8QLw0…",
+    "NEXT_PUBLIC_PAYPAL_MODE":      "sandbox",
+    "ENCRYPTION_MASTER_KEY":    "V9mQH8p3rK1xT7aZ4bY6NwL2sE5cJ0Df",
+    "BUSINESS_EMAIL":           "mahavishnutechsolutions@gmail.com",
+    "BUSINESS_PHONE":           "+919546233464",
+    "SUPPORT_EMAIL":            "mahavishnutechsolutions@gmail.com"
+  }
+}
