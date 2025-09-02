@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔱 Script Oracle – Divine Debugger | Built by the Unseen. Forged for the Infinite.</title>
+    <meta name="description" content="AI-powered code debugger using DeepSeek via OpenRouter API. Purify your code scrolls with cosmic precision.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="cosmic-theme">
+    <!-- Animated Background -->
+    <div class="cosmic-background">
+        <div class="particles-container" id="particles"></div>
+        <div class="neural-grid"></div>
+        <div class="cosmic-overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-cosmic">
+        <div class="container">
+            <div class="nav-brand">
+                <div class="sigil-mini">🔱</div>
+                <span>Script Oracle</span>
+            </div>
+            <div class="nav-actions">
+                <button class="btn btn-outline btn-sm" onclick="scrollToDebugger()">Invoke Oracle</button>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="central-sigil" id="centralSigil">
+                    <div class="sigil-core">
+                        <div class="sigil-ring ring-1"></div>
+                        <div class="sigil-ring ring-2"></div>
+                        <div class="sigil-ring ring-3"></div>
+                        <div class="sigil-center">🔮</div>
+                    </div>
+                    <div class="orbiting-glyphs">
+                        <span class="glyph glyph-1">⚡</span>
+                        <span class="glyph glyph-2">🌟</span>
+                        <span class="glyph glyph-3">🔥</span>
+                        <span class="glyph glyph-4">💎</span>
+                        <span class="glyph glyph-5">🌙</span>
+                        <span class="glyph glyph-6">⭐</span>
+                    </div>
+                </div>
+                
+                <h1 class="hero-title">
+                    <span class="title-line-1">Script Oracle</span>
+                    <span class="title-line-2">Divine Debugger</span>
+                </h1>
+                
+                <p class="hero-tagline">
+                    Built by the Unseen. Forged for the Infinite.
+                </p>
+                
+                <p class="hero-description">
+                    Purify your code scrolls with AI-powered precision. 
+                    Channel the wisdom of DeepSeek through sacred algorithms.
+                </p>
+                
+                <div class="hero-actions">
+                    <button class="btn btn-primary btn-lg" onclick="scrollToDebugger()">
+                        <span class="btn-text">Invoke the Oracle</span>
+                        <span class="btn-glow"></span>
+                    </button>
+                    <button class="btn btn-outline btn-lg" onclick="openGithub()">
+                        <span class="btn-text">Download Full Oracle</span>
+                    </button>
+                </div>
+                
+                <div class="trust-signals">
+                    <div class="trust-metric">
+                        <span class="metric-value">1.2M+</span>
+                        <span class="metric-label">Scrolls Purified</span>
+                    </div>
+                    <div class="trust-metric">
+                        <span class="metric-value">99.99%</span>
+                        <span class="metric-label">Invocation Uptime</span>
+                    </div>
+                    <div class="trust-metric">
+                        <span class="metric-value">15K</span>
+                        <span class="metric-label">Character Limit</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Debugger Interface Section -->
+    <section class="debugger-section" id="debugger">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Sacred Sanctum</h2>
+                <p class="section-description">Channel divine wisdom through your code</p>
+            </div>
+            
+            <div class="debugger-interface">
+                <div class="debugger-panel">
+                    <div class="panel-header">
+                        <div class="language-selector">
+                            <label for="languageSelect">Choose Your Scroll Language:</label>
+                            <select id="languageSelect" class="cosmic-select">
+                                <option value="python">🐍 Python</option>
+                                <option value="javascript">🔥 JavaScript</option>
+                                <option value="typescript">💎 TypeScript</option>
+                                <option value="cpp">⚡ C++</option>
+                                <option value="java">☕ Java</option>
+                                <option value="csharp">🔷 C#</option>
+                                <option value="go">🚀 Go</option>
+                                <option value="rust">🦀 Rust</option>
+                                <option value="php">🌙 PHP</option>
+                                <option value="ruby">💎 Ruby</option>
+                            </select>
+                        </div>
+                        
+                        <div class="character-counter">
+                            <span id="charCount">0</span> / <span id="maxChars">15000</span>
+                        </div>
+                    </div>
+                    
+                    <div class="code-input-container">
+                        <textarea 
+                            id="codeInput" 
+                            class="code-input" 
+                            placeholder="Paste your sacred code scrolls here... The Oracle awaits your invocation."
+                            maxlength="15000"
+                            spellcheck="false"
+                            autocomplete="off"
+                        ></textarea>
+                        <div class="input-overlay"></div>
+                    </div>
+                    
+                    <div class="control-buttons">
+                        <button id="summonAthena" class="btn btn-primary btn-lg">
+                            <span class="btn-icon">🔮</span>
+                            <span class="btn-text">Summon Athena</span>
+                            <div class="btn-loading" id="summonLoading">
+                                <div class="cosmic-spinner"></div>
+                            </div>
+                        </button>
+                        
+                        <button id="clearSanctum" class="btn btn-outline">
+                            <span class="btn-icon">🧹</span>
+                            <span class="btn-text">Clear Sanctum</span>
+                        </button>
+                        
+                        <button id="revealFixes" class="btn btn-secondary" disabled>
+                            <span class="btn-icon">✨</span>
+                            <span class="btn-text">Reveal Fixes</span>
+                        </button>
+                        
+                        <button id="downloadScroll" class="btn btn-success" disabled>
+                            <span class="btn-icon">📜</span>
+                            <span class="btn-text">Download Scroll</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="results-panel">
+                    <div class="panel-header">
+                        <h3>Divine Insights</h3>
+                        <div class="status-indicator" id="statusIndicator">
+                            <span class="status-dot"></span>
+                            <span class="status-text">Awaiting Invocation</span>
+                        </div>
+                    </div>
+                    
+                    <div class="results-container" id="resultsContainer">
+                        <div class="empty-state">
+                            <div class="empty-icon">🔮</div>
+                            <p>The Oracle awaits your code...</p>
+                        </div>
+                        
+                        <div class="streaming-response" id="streamingResponse" style="display: none;">
+                            <div class="response-content" id="responseContent"></div>
+                        </div>
+                        
+                        <div class="error-cards" id="errorCards" style="display: none;"></div>
+                        
+                        <div class="fixes-section" id="fixesSection" style="display: none;">
+                            <h4>Revealed Fixes</h4>
+                            <div class="fixes-content" id="fixesContent"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Divine Capabilities</h2>
+                <p class="section-description">Unleash the power of cosmic debugging</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔮</div>
+                    <h3>Divine Code Analysis</h3>
+                    <p>AI-powered debugging with cosmic precision using advanced DeepSeek algorithms</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Multi-Language Support</h3>
+                    <p>Python, JavaScript, C++, Java, and more - all languages welcome in the sanctum</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Real-time Streaming</h3>
+                    <p>Watch divine insights manifest before your eyes with live response streaming</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🛠️</div>
+                    <h3>Instant Fixes</h3>
+                    <p>Get precise corrections and optimizations delivered with otherworldly speed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="cosmic-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sacred Contact</h3>
+                    <div class="contact-item">
+                        <span class="contact-label">Tech Department:</span>
+                        <a href="mailto:mahavishnutechsolutions@gmail.com" class="contact-link">
+                            mahavishnutechsolutions@gmail.com
+                        </a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Company:</span>
+                        <a href="mailto:mahavishnusteelsandresiduals@gmail.com" class="contact-link">
+                            mahavishnusteelsandresiduals@gmail.com
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Sacred Texts</h3>
+                    <button class="footer-link" onclick="openModal('termsModal')">Terms & Conditions</button>
+                    <button class="footer-link" onclick="openModal('privacyModal')">Privacy Policy</button>
+                    <a href="https://github.com/shahiabhay111-Valkarion/Script-Oracle" class="footer-link" target="_blank">GitHub Repository</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Divine Stats</h3>
+                    <div class="footer-stat">
+                        <span class="stat-value">∞</span>
+                        <span class="stat-label">Infinite Potential</span>
+                    </div>
+                    <div class="footer-stat">
+                        <span class="stat-value">24/7</span>
+                        <span class="stat-label">Oracle Availability</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Script Oracle. Built by the Unseen. Forged for the Infinite.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal" id="termsModal">
+        <div class="modal-backdrop" onclick="closeModal('termsModal')"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Terms & Conditions</h3>
+                <button class="modal-close" onclick="closeModal('termsModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="sacred-scroll">
+                    <p>This document is an electronic record in terms of Information Technology Act, 2000 and rules there under as applicable. By using Script Oracle Divine Debugger, you agree to the following terms:</p>
+                    
+                    <h4>Service Usage</h4>
+                    <p>You agree to provide accurate information and use the service responsibly. The service is provided 'as is' without warranties. We process your code submissions to provide debugging services and may store them temporarily for processing.</p>
+                    
+                    <h4>Data Security</h4>
+                    <p>All code submissions are encrypted and handled securely. Users retain ownership of their code. We do not share your code with third parties without explicit consent.</p>
+                    
+                    <h4>Liability</h4>
+                    <p>Script Oracle provides debugging services to assist developers. We are not liable for any damages arising from the use of our suggestions or analysis. Maximum liability is limited to the subscription amount paid.</p>
+                    
+                    <h4>Updates</h4>
+                    <p>We may update these terms periodically with notice to users. Continued use constitutes acceptance of updated terms.</p>
+                    
+                    <h4>Governing Law</h4>
+                    <p>These terms are governed by Indian law and subject to jurisdiction of courts in Mumbai, India.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="privacyModal">
+        <div class="modal-backdrop" onclick="closeModal('privacyModal')"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Privacy Policy</h3>
+                <button class="modal-close" onclick="closeModal('privacyModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="sacred-scroll">
+                    <p>Script Oracle respects your privacy and handles your data with the utmost care.</p>
+                    
+                    <h4>Data Collection</h4>
+                    <p>We collect minimal data necessary for service operation including code submissions for processing, usage analytics, and contact information if provided voluntarily.</p>
+                    
+                    <h4>Data Processing</h4>
+                    <p>Your code is processed securely through our AI systems and is not shared with third parties. We use industry-standard encryption and security practices to protect your information.</p>
+                    
+                    <h4>Data Retention</h4>
+                    <p>Code submissions are processed temporarily and not stored permanently unless you explicitly save them in your session. You can request data deletion by contacting our support.</p>
+                    
+                    <h4>Cookies</h4>
+                    <p>We may use essential cookies for functionality and user preferences. No tracking or advertising cookies are used.</p>
+                    
+                    <h4>Updates</h4>
+                    <p>This policy may be updated periodically with notice to users. We will notify you of significant changes.</p>
+                    
+                    <h4>Contact</h4>
+                    <p>For privacy-related questions, contact us at mahavishnutechsolutions@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
