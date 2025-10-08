@@ -1,0 +1,319 @@
+{
+  "project_name": "Script Oracle",
+  "brand": {
+    "name": "SCRIPT ORACLE",
+    "tagline": "Multi-Dimensional Debugging",
+    "description": "AI-powered insight meets gamified growth",
+    "philosophy": "BREAKING PATCHING is a prayer, RUNNING RESOLVING is a triumph"
+  },
+  "color_palette": {
+    "primary": {
+      "dark_background": "#0D0D0D",
+      "medium_dark": "#1A1A1A",
+      "card_background": "#262626",
+      "border_dark": "#333333"
+    },
+    "accent": {
+      "neon_green": "#00FF88",
+      "electric_blue": "#00AAFF",
+      "bright_yellow": "#FFE600",
+      "orange": "#FF6B35",
+      "purple": "#8B5CF6",
+      "pink": "#FF69B4"
+    },
+    "text": {
+      "primary_white": "#FFFFFF",
+      "secondary_gray": "#B0B0B0",
+      "muted_gray": "#808080",
+      "dark_gray": "#404040"
+    },
+    "status": {
+      "success": "#22C55E",
+      "warning": "#F59E0B",
+      "error": "#EF4444",
+      "info": "#3B82F6"
+    },
+    "gaming": {
+      "xp_gold": "#FFD700",
+      "streak_fire": "#FF4500",
+      "badge_silver": "#C0C0C0",
+      "level_bronze": "#CD7F32"
+    }
+  },
+  "typography": {
+    "font_families": {
+      "primary": "Inter, system-ui, sans-serif",
+      "heading": "Space Grotesk, Inter, sans-serif",
+      "monospace": "JetBrains Mono, Consolas, monospace",
+      "display": "Orbitron, Space Grotesk, sans-serif"
+    },
+    "font_sizes": {
+      "xs": "0.75rem",
+      "sm": "0.875rem",
+      "base": "1rem",
+      "lg": "1.125rem",
+      "xl": "1.25rem",
+      "2xl": "1.5rem",
+      "3xl": "1.875rem",
+      "4xl": "2.25rem",
+      "5xl": "3rem",
+      "6xl": "3.75rem"
+    },
+    "font_weights": {
+      "light": 300,
+      "normal": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700,
+      "extrabold": 800
+    },
+    "line_heights": {
+      "tight": 1.25,
+      "snug": 1.375,
+      "normal": 1.5,
+      "relaxed": 1.625,
+      "loose": 2
+    }
+  },
+  "spacing": {
+    "scale": {
+      "0": "0",
+      "1": "0.25rem",
+      "2": "0.5rem",
+      "3": "0.75rem",
+      "4": "1rem",
+      "5": "1.25rem",
+      "6": "1.5rem",
+      "8": "2rem",
+      "10": "2.5rem",
+      "12": "3rem",
+      "16": "4rem",
+      "20": "5rem",
+      "24": "6rem",
+      "32": "8rem"
+    },
+    "containers": {
+      "max_width": "1200px",
+      "padding_x": "1rem",
+      "padding_y": "2rem"
+    }
+  },
+  "layout": {
+    "grid": {
+      "columns": 12,
+      "gap": "1.5rem",
+      "breakpoints": {
+        "sm": "640px",
+        "md": "768px",
+        "lg": "1024px",
+        "xl": "1280px",
+        "2xl": "1536px"
+      }
+    },
+    "sidebar": {
+      "width": "280px",
+      "collapsed_width": "80px"
+    },
+    "header": {
+      "height": "64px"
+    },
+    "content": {
+      "max_width": "800px",
+      "padding": "2rem"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": {
+        "background": "#00FF88",
+        "color": "#000000",
+        "border": "none",
+        "border_radius": "8px",
+        "padding": "12px 24px",
+        "font_weight": 600,
+        "font_size": "0.875rem",
+        "hover": {
+          "background": "#00E67A",
+          "transform": "translateY(-2px)"
+        }
+      },
+      "secondary": {
+        "background": "transparent",
+        "color": "#FFFFFF",
+        "border": "1px solid #333333",
+        "border_radius": "8px",
+        "padding": "12px 24px",
+        "font_weight": 500,
+        "hover": {
+          "border_color": "#00FF88",
+          "color": "#00FF88"
+        }
+      },
+      "ghost": {
+        "background": "transparent",
+        "color": "#B0B0B0",
+        "border": "none",
+        "padding": "8px 16px",
+        "hover": {
+          "color": "#FFFFFF",
+          "background": "#262626"
+        }
+      }
+    },
+    "cards": {
+      "default": {
+        "background": "#1A1A1A",
+        "border": "1px solid #333333",
+        "border_radius": "12px",
+        "padding": "24px",
+        "shadow": "0 4px 12px rgba(0, 0, 0, 0.3)"
+      },
+      "elevated": {
+        "background": "#262626",
+        "border": "1px solid #404040",
+        "border_radius": "16px",
+        "padding": "32px",
+        "shadow": "0 8px 24px rgba(0, 0, 0, 0.4)"
+      },
+      "gaming": {
+        "background": "linear-gradient(135deg, #1A1A1A 0%, #262626 100%)",
+        "border": "2px solid #00FF88",
+        "border_radius": "12px",
+        "padding": "20px",
+        "shadow": "0 0 20px rgba(0, 255, 136, 0.2)"
+      }
+    },
+    "navigation": {
+      "sidebar": {
+        "background": "#0D0D0D",
+        "border_right": "1px solid #333333",
+        "item_padding": "12px 16px",
+        "item_hover": "#262626",
+        "active_color": "#00FF88"
+      },
+      "topbar": {
+        "background": "#1A1A1A",
+        "border_bottom": "1px solid #333333",
+        "height": "64px"
+      }
+    },
+    "forms": {
+      "input": {
+        "background": "#262626",
+        "border": "1px solid #404040",
+        "border_radius": "8px",
+        "padding": "12px 16px",
+        "color": "#FFFFFF",
+        "placeholder_color": "#808080",
+        "focus": {
+          "border_color": "#00FF88",
+          "shadow": "0 0 0 2px rgba(0, 255, 136, 0.2)"
+        }
+      },
+      "label": {
+        "color": "#B0B0B0",
+        "font_size": "0.875rem",
+        "font_weight": 500,
+        "margin_bottom": "6px"
+      }
+    },
+    "gaming_elements": {
+      "xp_badge": {
+        "background": "linear-gradient(45deg, #FFD700, #FFA500)",
+        "color": "#000000",
+        "border_radius": "20px",
+        "padding": "4px 12px",
+        "font_weight": 700,
+        "font_size": "0.75rem"
+      },
+      "streak_indicator": {
+        "background": "#FF4500",
+        "color": "#FFFFFF",
+        "border_radius": "6px",
+        "padding": "2px 8px",
+        "font_weight": 600
+      },
+      "level_progress": {
+        "background": "#333333",
+        "fill_color": "#00FF88",
+        "height": "8px",
+        "border_radius": "4px"
+      }
+    },
+    "modals": {
+      "overlay": {
+        "background": "rgba(0, 0, 0, 0.8)",
+        "backdrop_filter": "blur(4px)"
+      },
+      "content": {
+        "background": "#1A1A1A",
+        "border": "1px solid #333333",
+        "border_radius": "16px",
+        "max_width": "600px",
+        "padding": "32px"
+      }
+    }
+  },
+  "animations": {
+    "transitions": {
+      "fast": "150ms ease-out",
+      "normal": "250ms ease-out",
+      "slow": "350ms ease-out"
+    },
+    "hover_effects": {
+      "lift": "translateY(-2px)",
+      "scale": "scale(1.02)",
+      "glow": "0 0 20px rgba(0, 255, 136, 0.3)"
+    },
+    "loading": {
+      "spinner": "rotate 1s linear infinite",
+      "pulse": "pulse 2s ease-in-out infinite"
+    }
+  },
+  "specific_sections": {
+    "dashboard": {
+      "background": "#0D0D0D",
+      "grid_gap": "24px",
+      "card_min_height": "200px"
+    },
+    "heatmap": {
+      "cell_size": "16px",
+      "gap": "2px",
+      "colors": {
+        "low": "#1A1A1A",
+        "medium": "#00FF88",
+        "high": "#FFD700"
+      }
+    },
+    "leaderboard": {
+      "item_height": "60px",
+      "rank_width": "40px",
+      "avatar_size": "40px"
+    },
+    "badges": {
+      "size": "80px",
+      "grid_columns": "repeat(auto-fill, minmax(100px, 1fr))",
+      "spacing": "16px"
+    },
+    "authentication": {
+      "form_width": "400px",
+      "social_button_height": "44px",
+      "divider_color": "#404040"
+    }
+  },
+  "dark_theme": {
+    "enabled": true,
+    "background_levels": {
+      "0": "#0D0D0D",
+      "1": "#1A1A1A",
+      "2": "#262626",
+      "3": "#333333"
+    }
+  },
+  "accessibility": {
+    "focus_outline": "2px solid #00FF88",
+    "focus_offset": "2px",
+    "min_contrast_ratio": 4.5,
+    "touch_target_min": "44px"
+  }
+}
