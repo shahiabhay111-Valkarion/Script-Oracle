@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Script Oracle - Multi-Dimensional Debugging Platform</title>
+    <meta name="description" content="Enterprise-grade AI-powered debugging with gamification. Multi-dimensional code analysis and real-time collaboration.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%235227ff'><circle cx='12' cy='12' r='10'/><path d='M12 6v12M6 12h12' stroke='white' stroke-width='2'/></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loading Splash Screen -->
+    <div id="splash-screen" class="splash-screen">
+        <div class="splash-content">
+            <div class="rune-container">
+                <div class="rune-symbol">⚡</div>
+            </div>
+            <div class="decrypted-text" data-text="INITIALIZING ORACLE">INITIALIZING ORACLE</div>
+        </div>
+    </div>
+
+    <!-- Navigation Panel -->
+    <nav id="navigation" class="navigation">
+        <div class="nav-header">
+            <div class="nav-logo">
+                <div class="orb-mini"></div>
+                <span class="nav-title">Script Oracle</span>
+            </div>
+            <button id="nav-toggle" class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        
+        <div class="nav-menu">
+            <a href="#landing" class="nav-item active" data-page="landing">
+                <div class="nav-icon">📊</div>
+                <span>Landing</span>
+            </a>
+            <a href="#dashboard" class="nav-item" data-page="dashboard">
+                <div class="nav-icon">🎛️</div>
+                <span>Dashboard</span>
+            </a>
+            <a href="#console" class="nav-item" data-page="console">
+                <div class="nav-icon">▶️</div>
+                <span>Run Console</span>
+                <div class="nav-badge">3</div>
+            </a>
+            <a href="#heatmap" class="nav-item" data-page="heatmap">
+                <div class="nav-icon">📈</div>
+                <span>Heatmap</span>
+            </a>
+            <a href="#badges" class="nav-item" data-page="badges">
+                <div class="nav-icon">🏆</div>
+                <span>XP Badges</span>
+                <div class="nav-badge new">NEW</div>
+            </a>
+            <a href="#pricing" class="nav-item" data-page="pricing">
+                <div class="nav-icon">💎</div>
+                <span>Pricing</span>
+            </a>
+            <a href="#settings" class="nav-item" data-page="settings">
+                <div class="nav-icon">⚙️</div>
+                <span>Settings</span>
+            </a>
+        </div>
+
+        <div class="nav-footer">
+            <div class="user-profile">
+                <div class="user-avatar">AJ</div>
+                <div class="user-info">
+                    <div class="user-name">Arihant Jain</div>
+                    <div class="user-level">Level 8</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main-content">
+        <!-- Landing Page -->
+        <section id="landing-page" class="page active">
+            <div class="cosmic-background">
+                <canvas id="cosmic-canvas"></canvas>
+                <div class="nebula-particles"></div>
+            </div>
+            
+            <div class="hero-section">
+                <div class="hero-content">
+                    <div class="tensorflow-orb">
+                        <div class="orb-core"></div>
+                        <div class="orb-rings">
+                            <div class="orb-ring" data-label="RUN">
+                                <div class="ring-label">RUN</div>
+                            </div>
+                            <div class="orb-ring" data-label="HEATMAP">
+                                <div class="ring-label">HEATMAP</div>
+                            </div>
+                            <div class="orb-ring" data-label="XP">
+                                <div class="ring-label">XP</div>
+                            </div>
+                            <div class="orb-ring" data-label="DEBUGGING">
+                                <div class="ring-label">DEBUGGING</div>
+                            </div>
+                            <div class="orb-ring" data-label="BADGE">
+                                <div class="ring-label">BADGE</div>
+                            </div>
+                            <div class="orb-ring" data-label="COSMIC">
+                                <div class="ring-label">COSMIC</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h1 class="hero-title">Multi-Dimensional Debugging</h1>
+                    <p class="hero-subtitle">Enterprise-grade AI-powered code analysis with gamified developer experience</p>
+                    
+                    <button class="cta-button" id="launch-oracle">
+                        <span class="cta-text">Launch the Oracle</span>
+                        <div class="electric-border"></div>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="features-showcase">
+                <div class="container">
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🧠</div>
+                            <h3>AI-Powered Analysis</h3>
+                            <p>Advanced machine learning algorithms analyze your code patterns and suggest optimizations</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">⚡</div>
+                            <h3>Real-time Debugging</h3>
+                            <p>Live execution streaming with instant patch suggestions and approval workflows</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🏆</div>
+                            <h3>Gamified Experience</h3>
+                            <p>Earn XP, unlock badges, maintain streaks, and compete in guild leaderboards</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🔒</div>
+                            <h3>Enterprise Security</h3>
+                            <p>SSO/SAML integration, audit trails, and compliance-ready infrastructure</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Page -->
+        <section id="dashboard-page" class="page">
+            <div class="page-header">
+                <h2>Dashboard</h2>
+                <div class="header-actions">
+                    <button class="btn btn-primary">New Session</button>
+                </div>
+            </div>
+            
+            <div class="dashboard-grid">
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <div class="stat-icon">🎯</div>
+                        <div class="stat-content">
+                            <div class="stat-value">15,420</div>
+                            <div class="stat-label">Total XP</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🔥</div>
+                        <div class="stat-content">
+                            <div class="stat-value">7</div>
+                            <div class="stat-label">Day Streak</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🏆</div>
+                        <div class="stat-content">
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">Badges</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-content">
+                            <div class="stat-value">#3</div>
+                            <div class="stat-label">Guild Rank</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="main-content-grid">
+                    <div class="active-runs-panel">
+                        <h3>Active Debug Runs</h3>
+                        <div class="runs-list">
+                            <div class="run-item running">
+                                <div class="run-icon">▶️</div>
+                                <div class="run-info">
+                                    <div class="run-name">Security Analysis</div>
+                                    <div class="run-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 67%"></div>
+                                        </div>
+                                        <span>67% • 00:15:32</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="run-item completed">
+                                <div class="run-icon">✅</div>
+                                <div class="run-info">
+                                    <div class="run-name">Test Generation</div>
+                                    <div class="run-status">Completed • 00:08:45</div>
+                                </div>
+                            </div>
+                            <div class="run-item pending">
+                                <div class="run-icon">⏳</div>
+                                <div class="run-info">
+                                    <div class="run-name">Code Review</div>
+                                    <div class="run-status">Queued</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="xp-progress-panel">
+                        <h3>Level Progress</h3>
+                        <div class="level-info">
+                            <div class="current-level">Level 8</div>
+                            <div class="xp-bar">
+                                <div class="xp-fill" data-progress="77"></div>
+                            </div>
+                            <div class="xp-text">15,420 / 20,000 XP</div>
+                        </div>
+                        <div class="next-rewards">
+                            <div class="reward-preview">
+                                <span>Next: Cosmic Debugger Badge</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="recent-activity">
+                    <h3>Recent Activity</h3>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon badge">🏆</div>
+                            <div class="activity-content">
+                                <span>Earned 'Bug Slayer' badge</span>
+                                <time>2 hours ago</time>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon xp">⭐</div>
+                            <div class="activity-content">
+                                <span>Gained 250 XP from debug session</span>
+                                <time>3 hours ago</time>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon streak">🔥</div>
+                            <div class="activity-content">
+                                <span>Maintained 7-day streak</span>
+                                <time>1 day ago</time>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Run Console Page -->
+        <section id="console-page" class="page">
+            <div class="console-layout">
+                <div class="console-header">
+                    <h2>Run Console</h2>
+                    <div class="console-actions">
+                        <button class="btn btn-primary" id="execute-code">Execute</button>
+                        <button class="btn btn-secondary" id="save-session">Save</button>
+                    </div>
+                </div>
+                
+                <div class="console-grid">
+                    <div class="code-editor-panel">
+                        <div class="editor-header">
+                            <div class="file-tabs">
+                                <div class="file-tab active">main.py</div>
+                                <div class="file-tab">test.js</div>
+                            </div>
+                        </div>
+                        <div class="code-editor" id="code-editor">
+# AI-Powered Debugging Session
+def analyze_code(source_code):
+    """
+    Analyze source code for potential bugs and optimizations
+    """
+    issues = []
+    suggestions = []
+    
+    # Syntax analysis
+    if not source_code.strip():
+        issues.append("Empty code block detected")
+        return {"issues": issues, "suggestions": suggestions}
+    
+    # Pattern detection
+    if "print(" in source_code and "debug" in source_code.lower():
+        suggestions.append("Consider using logging instead of print statements")
+    
+    # Performance analysis
+    nested_loops = source_code.count("for") * source_code.count("while")
+    if nested_loops > 2:
+        suggestions.append("Potential O(n²) complexity detected")
+    
+    return {
+        "issues": issues,
+        "suggestions": suggestions,
+        "complexity_score": min(nested_loops * 2, 10)
+    }
+
+# Example usage
+code_sample = """
+for i in range(1000):
+    for j in range(1000):
+        print(f"Debug: {i}, {j}")
+"""
+
+result = analyze_code(code_sample)
+print("Analysis complete:", result)
+                        </div>
+                    </div>
+                    
+                    <div class="execution-panel">
+                        <div class="panel-header">
+                            <h3>Live Execution</h3>
+                            <div class="execution-status running">Running...</div>
+                        </div>
+                        <div class="execution-output">
+                            <div class="output-line">
+                                <span class="timestamp">[15:32:45]</span>
+                                <span class="output-text">Starting analysis...</span>
+                            </div>
+                            <div class="output-line">
+                                <span class="timestamp">[15:32:46]</span>
+                                <span class="output-text">Scanning for performance issues...</span>
+                            </div>
+                            <div class="output-line success">
+                                <span class="timestamp">[15:32:47]</span>
+                                <span class="output-text">✓ Found 2 optimization opportunities</span>
+                            </div>
+                            <div class="output-line warning">
+                                <span class="timestamp">[15:32:48]</span>
+                                <span class="output-text">⚠ Nested loop complexity detected</span>
+                            </div>
+                            <div class="ai-suggestion">
+                                <div class="suggestion-header">🤖 AI Suggestion</div>
+                                <div class="suggestion-content">
+                                    Replace nested loops with numpy operations for better performance
+                                </div>
+                                <div class="suggestion-actions">
+                                    <button class="btn btn-sm btn-primary">Apply Fix</button>
+                                    <button class="btn btn-sm btn-secondary">Ignore</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Heatmap Page -->
+        <section id="heatmap-page" class="page">
+            <div class="page-header">
+                <h2>Activity Heatmap</h2>
+                <div class="heatmap-controls">
+                    <select class="form-control">
+                        <option>Last 30 Days</option>
+                        <option>Last 90 Days</option>
+                        <option>Last Year</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="heatmap-container">
+                <div class="heatmap-grid">
+                    <!-- Heatmap visualization will be generated by JavaScript -->
+                </div>
+                <div class="heatmap-legend">
+                    <span>Less</span>
+                    <div class="legend-squares">
+                        <div class="legend-square" data-level="0"></div>
+                        <div class="legend-square" data-level="1"></div>
+                        <div class="legend-square" data-level="2"></div>
+                        <div class="legend-square" data-level="3"></div>
+                        <div class="legend-square" data-level="4"></div>
+                    </div>
+                    <span>More</span>
+                </div>
+            </div>
+            
+            <div class="heatmap-stats">
+                <div class="stat-box">
+                    <h4>Total Sessions</h4>
+                    <div class="stat-number">147</div>
+                </div>
+                <div class="stat-box">
+                    <h4>Avg Duration</h4>
+                    <div class="stat-number">23m</div>
+                </div>
+                <div class="stat-box">
+                    <h4>Peak Day</h4>
+                    <div class="stat-number">Oct 5</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Badges Page -->
+        <section id="badges-page" class="page">
+            <div class="page-header">
+                <h2>XP Badges Vault</h2>
+                <div class="badges-stats">
+                    <span class="badge-count">12 / 50 Badges Unlocked</span>
+                </div>
+            </div>
+            
+            <div class="badges-grid">
+                <div class="badge-card unlocked" data-badge="bug-slayer">
+                    <div class="badge-glow"></div>
+                    <div class="badge-icon">🐛</div>
+                    <div class="badge-name">Bug Slayer</div>
+                    <div class="badge-description">Fixed 100 critical bugs</div>
+                    <div class="badge-rarity legendary">Legendary</div>
+                </div>
+                
+                <div class="badge-card unlocked" data-badge="speed-demon">
+                    <div class="badge-glow"></div>
+                    <div class="badge-icon">⚡</div>
+                    <div class="badge-name">Speed Demon</div>
+                    <div class="badge-description">Completed 10 sessions under 5 minutes</div>
+                    <div class="badge-rarity epic">Epic</div>
+                </div>
+                
+                <div class="badge-card unlocked" data-badge="streak-keeper">
+                    <div class="badge-glow"></div>
+                    <div class="badge-icon">🔥</div>
+                    <div class="badge-name">Streak Keeper</div>
+                    <div class="badge-description">Maintained 7-day debugging streak</div>
+                    <div class="badge-rarity rare">Rare</div>
+                </div>
+                
+                <div class="badge-card locked">
+                    <div class="badge-icon">🏆</div>
+                    <div class="badge-name">Cosmic Debugger</div>
+                    <div class="badge-description">Reach Level 10</div>
+                    <div class="badge-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
+                        <span>Level 8/10</span>
+                    </div>
+                </div>
+                
+                <div class="badge-card locked">
+                    <div class="badge-icon">🌟</div>
+                    <div class="badge-name">Guild Master</div>
+                    <div class="badge-description">Reach #1 in guild leaderboard</div>
+                    <div class="badge-progress">
+                        <span>Current: #3</span>
+                    </div>
+                </div>
+                
+                <div class="badge-card locked">
+                    <div class="badge-icon">🎯</div>
+                    <div class="badge-name">Precision Strike</div>
+                    <div class="badge-description">100% accuracy on 50 fixes</div>
+                    <div class="badge-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 32%"></div>
+                        </div>
+                        <span>16/50</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Page -->
+        <section id="pricing-page" class="page">
+            <div class="pricing-header">
+                <h2>Choose Your Oracle Path</h2>
+                <p>Unlock the full potential of multi-dimensional debugging</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <h3>Free</h3>
+                        <div class="plan-price">
+                            <span class="currency">$</span>
+                            <span class="amount">0</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <div class="plan-features">
+                        <div class="feature">✓ Core debugging tools</div>
+                        <div class="feature">✓ Basic heatmaps</div>
+                        <div class="feature">✓ XP tracking</div>
+                        <div class="feature">✓ Community support</div>
+                        <div class="feature disabled">✗ Real-time collaboration</div>
+                        <div class="feature disabled">✗ Advanced AI suggestions</div>
+                    </div>
+                    <button class="btn btn-outline plan-button">Get Started</button>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="plan-header">
+                        <h3>Pro</h3>
+                        <div class="plan-price">
+                            <span class="currency">$</span>
+                            <span class="amount">29</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <div class="plan-features">
+                        <div class="feature">✓ Everything in Free</div>
+                        <div class="feature">✓ Advanced debugging</div>
+                        <div class="feature">✓ Real-time collaboration</div>
+                        <div class="feature">✓ Guild features</div>
+                        <div class="feature">✓ Priority support</div>
+                        <div class="feature">✓ Custom integrations</div>
+                    </div>
+                    <button class="btn btn-primary plan-button">Start Free Trial</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <h3>Enterprise</h3>
+                        <div class="plan-price">
+                            <span class="currency">$</span>
+                            <span class="amount">99</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <div class="plan-features">
+                        <div class="feature">✓ Everything in Pro</div>
+                        <div class="feature">✓ SSO/SAML integration</div>
+                        <div class="feature">✓ Audit trails</div>
+                        <div class="feature">✓ Dedicated support</div>
+                        <div class="feature">✓ Custom deployment</div>
+                        <div class="feature">✓ Advanced analytics</div>
+                    </div>
+                    <button class="btn btn-secondary plan-button">Contact Sales</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Settings Page -->
+        <section id="settings-page" class="page">
+            <div class="settings-layout">
+                <div class="settings-sidebar">
+                    <div class="settings-menu">
+                        <a href="#profile" class="settings-item active">Profile</a>
+                        <a href="#preferences" class="settings-item">Preferences</a>
+                        <a href="#integrations" class="settings-item">Integrations</a>
+                        <a href="#security" class="settings-item">Security</a>
+                        <a href="#billing" class="settings-item">Billing</a>
+                    </div>
+                </div>
+                
+                <div class="settings-content">
+                    <div class="settings-section active" id="profile-settings">
+                        <h3>Profile Settings</h3>
+                        <div class="form-group">
+                            <label class="form-label">Display Name</label>
+                            <input type="text" class="form-control" value="Arihant Jain">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" value="arihant@scriptoracle.in">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Guild</label>
+                            <select class="form-control">
+                                <option>Cosmic Debuggers</option>
+                                <option>Code Warriors</option>
+                                <option>Bug Hunters</option>
+                            </select>
+                        </div>
+                        <div class="bb8-theme-toggle">
+                            <div class="bb8-container">
+                                <div class="bb8-body"></div>
+                                <div class="bb8-head"></div>
+                                <div class="planet-scene">
+                                    <div class="planet"></div>
+                                    <div class="stars"></div>
+                                </div>
+                            </div>
+                            <div class="toggle-labels">
+                                <span>Light Mode</span>
+                                <span>Dark Mode</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section" id="preferences-settings">
+                        <h3>Preferences</h3>
+                        <div class="form-group">
+                            <label class="form-label">Editor Theme</label>
+                            <select class="form-control">
+                                <option>Dark Pro</option>
+                                <option>Light Classic</option>
+                                <option>Cosmic Blue</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>Enable auto-save</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>Real-time collaboration</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Advanced AI suggestions</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cursor Trail -->
+    <div id="cursor-trail"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
