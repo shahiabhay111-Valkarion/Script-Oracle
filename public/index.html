@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Script Oracle - Multi-Dimensional Debugging Platform</title>
+    <meta name="description" content="AI-powered insight meets gamified growth. Enterprise-grade code analysis with gamified developer experience.">
+    <meta name="keywords" content="debugging, code analysis, AI, gamification, enterprise">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@400;500;600&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div id="splash-screen" class="splash-screen active">
+        <div class="cosmic-particles"></div>
+        <div class="rune-container">
+            <div class="rune-ignition">
+                <div class="rune-symbol">⟨⟩</div>
+                <div class="electric-ring"></div>
+            </div>
+        </div>
+        <div class="scroll-unfurl">
+            <div class="scroll-content">
+                <h1 class="decode-text">INITIALIZING SCRIPT ORACLE</h1>
+                <div class="loading-bar">
+                    <div class="loading-progress"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="app" class="app hidden">
+        <!-- Header Navigation -->
+        <header class="header">
+            <div class="header-content">
+                <div class="brand">
+                    <div class="brand-icon">⟨⟩</div>
+                    <div class="brand-text">
+                        <span class="brand-name">SCRIPT ORACLE</span>
+                        <span class="brand-tagline">Multi-Dimensional Debugging</span>
+                    </div>
+                </div>
+                
+                <nav class="main-nav">
+                    <a href="#landing" class="nav-link" data-page="landing">Home</a>
+                    <a href="#dashboard" class="nav-link active" data-page="dashboard">Dashboard</a>
+                    <a href="#console" class="nav-link" data-page="console">Run Console</a>
+                    <a href="#heatmap" class="nav-link" data-page="heatmap">Heatmap</a>
+                    <a href="#xp" class="nav-link" data-page="xp">XP Dashboard</a>
+                    <a href="#badges" class="nav-link" data-page="badges">Badge Vault</a>
+                    <a href="#security" class="nav-link" data-page="security">Security Oracle</a>
+                </nav>
+
+                <div class="header-actions">
+                    <div class="user-xp">
+                        <span class="xp-label">LVL 8</span>
+                        <div class="xp-bar">
+                            <div class="xp-progress" style="width: 77%"></div>
+                        </div>
+                        <span class="xp-count">15,420 XP</span>
+                    </div>
+                    <div class="user-profile">
+                        <div class="avatar"></div>
+                        <span class="username">Alex Developer</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-content">
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Core Features</h3>
+                    <nav class="sidebar-nav">
+                        <a href="#landing" class="sidebar-link" data-page="landing">
+                            <span class="sidebar-icon">🏠</span>
+                            <span class="sidebar-text">Home</span>
+                        </a>
+                        <a href="#dashboard" class="sidebar-link active" data-page="dashboard">
+                            <span class="sidebar-icon">📊</span>
+                            <span class="sidebar-text">Dashboard</span>
+                        </a>
+                        <a href="#console" class="sidebar-link" data-page="console">
+                            <span class="sidebar-icon">⚡</span>
+                            <span class="sidebar-text">Run Console</span>
+                        </a>
+                        <a href="#heatmap" class="sidebar-link" data-page="heatmap">
+                            <span class="sidebar-icon">🔥</span>
+                            <span class="sidebar-text">Heatmap Analyzer</span>
+                        </a>
+                        <a href="#xp" class="sidebar-link" data-page="xp">
+                            <span class="sidebar-icon">⭐</span>
+                            <span class="sidebar-text">XP Dashboard</span>
+                        </a>
+                        <a href="#badges" class="sidebar-link" data-page="badges">
+                            <span class="sidebar-icon">🏆</span>
+                            <span class="sidebar-text">Badge Vault</span>
+                        </a>
+                        <a href="#security" class="sidebar-link" data-page="security">
+                            <span class="sidebar-icon">🛡️</span>
+                            <span class="sidebar-text">Security Oracle</span>
+                        </a>
+                    </nav>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Enterprise</h3>
+                    <nav class="sidebar-nav">
+                        <a href="#admin" class="sidebar-link" data-page="admin">
+                            <span class="sidebar-icon">⚙️</span>
+                            <span class="sidebar-text">Admin Panel</span>
+                        </a>
+                        <a href="#analytics" class="sidebar-link" data-page="analytics">
+                            <span class="sidebar-icon">📈</span>
+                            <span class="sidebar-text">Analytics</span>
+                        </a>
+                        <a href="#settings" class="sidebar-link" data-page="settings">
+                            <span class="sidebar-icon">🔧</span>
+                            <span class="sidebar-text">Settings</span>
+                        </a>
+                    </nav>
+                </div>
+
+                <div class="guild-panel">
+                    <div class="guild-info">
+                        <h4 class="guild-name">Code Crusaders</h4>
+                        <div class="guild-members">12 Active Debuggers</div>
+                        <div class="guild-streak">
+                            <span class="streak-flame">🔥</span>
+                            <span class="streak-count">12 Day Streak</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content" id="main-content">
+            <!-- Landing Page -->
+            <div id="page-landing" class="page">
+                <div class="hero-section">
+                    <div class="cosmic-background">
+                        <div class="nebula-effect"></div>
+                        <div class="particle-field"></div>
+                    </div>
+                    
+                    <div class="hero-content">
+                        <div class="tensorflow-orb">
+                            <div class="orb-core"></div>
+                            <div class="orb-ring orb-ring1">
+                                <span class="orb-label">RUN</span>
+                            </div>
+                            <div class="orb-ring orb-ring2">
+                                <span class="orb-label">HEATMAP</span>
+                            </div>
+                            <div class="orb-ring orb-ring3">
+                                <span class="orb-label">XP</span>
+                            </div>
+                        </div>
+                        
+                        <h1 class="hero-title">
+                            <span class="hero-brand">SCRIPT ORACLE</span>
+                            <span class="hero-subtitle neon-glow">Multi-Dimensional Debugging</span>
+                        </h1>
+                        
+                        <p class="hero-description">AI-powered insight meets gamified growth</p>
+                        <p class="hero-philosophy">"BREAKING PATCHING is a prayer, RUNNING RESOLVING is a triumph"</p>
+                        
+                        <button class="cta-button electric-border" id="launch-oracle">
+                            <span class="cta-text">Launch The Oracle</span>
+                            <div class="cta-glow"></div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="features-section">
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">⚡</div>
+                            <h3>Real-Time Execution</h3>
+                            <p>Live code analysis with instant feedback and patch suggestions</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🎮</div>
+                            <h3>Gamified Experience</h3>
+                            <p>Level up through debugging challenges and unlock achievements</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🛡️</div>
+                            <h3>Enterprise Security</h3>
+                            <p>Advanced vulnerability scanning with compliance reporting</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🤖</div>
+                            <h3>AI-Powered Insights</h3>
+                            <p>Machine learning algorithms predict and prevent bugs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Page -->
+            <div id="page-dashboard" class="page active">
+                <div class="page-header">
+                    <h1 class="page-title">Command Center</h1>
+                    <p class="page-subtitle">Your debugging workspace and real-time metrics</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon trend-down">⏱️</div>
+                        <div class="stat-content">
+                            <div class="stat-value">12m</div>
+                            <div class="stat-label">Time to Fix</div>
+                            <div class="stat-change negative">-23%</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon trend-up">📊</div>
+                        <div class="stat-content">
+                            <div class="stat-value">94%</div>
+                            <div class="stat-label">Code Coverage</div>
+                            <div class="stat-change positive">+15%</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon trend-up">🚀</div>
+                        <div class="stat-content">
+                            <div class="stat-value">7</div>
+                            <div class="stat-label">Active Runs</div>
+                            <div class="stat-change positive">+2</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon trend-up">⚡</div>
+                        <div class="stat-content">
+                            <div class="stat-value">8.4</div>
+                            <div class="stat-label">Team Velocity</div>
+                            <div class="stat-change positive">+12%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Recent Activity</h3>
+                            <div class="activity-filter">
+                                <button class="filter-btn active">All</button>
+                                <button class="filter-btn">Fixes</button>
+                                <button class="filter-btn">Tests</button>
+                                <button class="filter-btn">Badges</button>
+                            </div>
+                        </div>
+                        <div class="activity-list" id="activity-list">
+                            <!-- Activity items will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Quick Actions</h3>
+                        </div>
+                        <div class="quick-actions">
+                            <button class="action-btn" data-page="console">
+                                <span class="action-icon">⚡</span>
+                                <span class="action-text">Start Debug Run</span>
+                            </button>
+                            <button class="action-btn" data-page="heatmap">
+                                <span class="action-icon">🔥</span>
+                                <span class="action-text">View Heatmap</span>
+                            </button>
+                            <button class="action-btn" data-page="security">
+                                <span class="action-icon">🛡️</span>
+                                <span class="action-text">Security Scan</span>
+                            </button>
+                            <button class="action-btn" data-page="badges">
+                                <span class="action-icon">🏆</span>
+                                <span class="action-text">Check Rewards</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Run Console Page -->
+            <div id="page-console" class="page">
+                <div class="page-header">
+                    <h1 class="page-title">Run Console</h1>
+                    <p class="page-subtitle">Execute and debug your code in real-time</p>
+                </div>
+
+                <div class="console-layout">
+                    <div class="console-editor">
+                        <div class="editor-header">
+                            <div class="editor-tabs">
+                                <div class="editor-tab active">UserController.java</div>
+                                <div class="editor-tab">PaymentService.java</div>
+                            </div>
+                            <div class="editor-actions">
+                                <button class="btn btn--sm run-btn">
+                                    <span class="btn-icon">▶️</span>
+                                    Run Analysis
+                                </button>
+                            </div>
+                        </div>
+                        <div class="code-editor" id="code-editor">
+                            <pre class="code-block"><code class="language-java">public class UserController {
+    private UserService userService;
+    
+    @GetMapping("/users/{id}")
+    public ResponseEntity&lt;User&gt; getUser(@PathVariable Long id) {
+        // Potential null pointer exception here
+        User user = userService.findById(id);
+        return ResponseEntity.ok(user);
+    }
+    
+    @PostMapping("/users")
+    public ResponseEntity&lt;User&gt; createUser(@RequestBody User user) {
+        // Missing validation
+        User savedUser = userService.save(user);
+        return ResponseEntity.ok(savedUser);
+    }
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="console-output">
+                        <div class="output-header">
+                            <h3>Analysis Results</h3>
+                            <div class="output-status running">
+                                <span class="status-indicator"></span>
+                                Analyzing...
+                            </div>
+                        </div>
+                        <div class="output-content" id="output-content">
+                            <!-- Analysis results will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Heatmap Analyzer Page -->
+            <div id="page-heatmap" class="page">
+                <div class="page-header">
+                    <h1 class="page-title">Heatmap Analyzer</h1>
+                    <p class="page-subtitle">Visualize code complexity and bug patterns</p>
+                </div>
+
+                <div class="heatmap-controls">
+                    <div class="control-group">
+                        <label class="control-label">Metric:</label>
+                        <select class="form-control" id="heatmap-metric">
+                            <option value="complexity">Code Complexity</option>
+                            <option value="bugs">Bug Density</option>
+                            <option value="coverage">Test Coverage</option>
+                            <option value="performance">Performance</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Time Range:</label>
+                        <select class="form-control" id="heatmap-range">
+                            <option value="7d">Last 7 Days</option>
+                            <option value="30d">Last 30 Days</option>
+                            <option value="90d">Last 90 Days</option>
+                        </select>
+                    </div>
+                    <button class="btn btn--primary" id="refresh-heatmap">
+                        <span class="btn-icon">🔄</span>
+                        Refresh Data
+                    </button>
+                </div>
+
+                <div class="heatmap-container">
+                    <div class="heatmap-legend">
+                        <div class="legend-title">Intensity Scale</div>
+                        <div class="legend-scale">
+                            <div class="legend-item">
+                                <span class="legend-color low"></span>
+                                <span class="legend-label">Low</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color medium"></span>
+                                <span class="legend-label">Medium</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color high"></span>
+                                <span class="legend-label">High</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color critical"></span>
+                                <span class="legend-label">Critical</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="heatmap-grid" id="heatmap-grid">
+                        <!-- Heatmap visualization will be populated here -->
+                    </div>
+                </div>
+
+                <div class="heatmap-stats">
+                    <div class="heatmap-summary">
+                        <h3>File Analysis Summary</h3>
+                        <div class="file-list" id="heatmap-files">
+                            <!-- File analysis will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- XP Dashboard Page -->
+            <div id="page-xp" class="page">
+                <div class="page-header">
+                    <h1 class="page-title">XP Dashboard</h1>
+                    <p class="page-subtitle">Track your debugging mastery and level progression</p>
+                </div>
+
+                <div class="xp-overview">
+                    <div class="level-display">
+                        <div class="level-circle">
+                            <span class="level-number">8</span>
+                            <div class="level-ring"></div>
+                        </div>
+                        <div class="level-info">
+                            <h2 class="level-title">Senior Debugger</h2>
+                            <div class="xp-progress-bar">
+                                <div class="xp-fill" style="width: 77%"></div>
+                                <span class="xp-text">15,420 / 20,000 XP</span>
+                            </div>
+                            <p class="xp-subtitle">4,580 XP to Level 9: Master Debugger</p>
+                        </div>
+                    </div>
+
+                    <div class="streak-display">
+                        <div class="streak-flame">🔥</div>
+                        <div class="streak-info">
+                            <div class="streak-count">12</div>
+                            <div class="streak-label">Day Streak</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="xp-grid">
+                    <div class="xp-card">
+                        <h3>Recent XP Events</h3>
+                        <div class="xp-events" id="xp-events">
+                            <!-- XP events will be populated here -->
+                        </div>
+                    </div>
+
+                    <div class="xp-card">
+                        <h3>XP Categories</h3>
+                        <div class="xp-categories">
+                            <div class="xp-category">
+                                <span class="category-icon">🐛</span>
+                                <span class="category-name">Bug Fixes</span>
+                                <span class="category-xp">8,420 XP</span>
+                            </div>
+                            <div class="xp-category">
+                                <span class="category-icon">🧪</span>
+                                <span class="category-name">Test Generation</span>
+                                <span class="category-xp">4,200 XP</span>
+                            </div>
+                            <div class="xp-category">
+                                <span class="category-icon">🔒</span>
+                                <span class="category-name">Security Fixes</span>
+                                <span class="category-xp">2,800 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Badge Vault Page -->
+            <div id="page-badges" class="page">
+                <div class="page-header">
+                    <h1 class="page-title">Badge Vault</h1>
+                    <p class="page-subtitle">Showcase your debugging achievements</p>
+                </div>
+
+                <div class="badge-stats">
+                    <div class="badge-stat">
+                        <span class="badge-count">23</span>
+                        <span class="badge-label">Badges Earned</span>
+                    </div>
+                    <div class="badge-stat">
+                        <span class="badge-count">8</span>
+                        <span class="badge-label">Rare Badges</span>
+                    </div>
+                    <div class="badge-stat">
+                        <span class="badge-count">2</span>
+                        <span class="badge-label">Epic Badges</span>
+                    </div>
+                </div>
+
+                <div class="badge-grid" id="badge-grid">
+                    <!-- Badges will be populated here -->
+                </div>
+            </div>
+
+            <!-- Security Oracle Page -->
+            <div id="page-security" class="page">
+                <div class="page-header">
+                    <h1 class="page-title">Security Oracle</h1>
+                    <p class="page-subtitle">Advanced vulnerability analysis and compliance monitoring</p>
+                </div>
+
+                <div class="security-overview">
+                    <div class="security-score">
+                        <div class="score-circle">
+                            <span class="score-value">94</span>
+                            <span class="score-max">/100</span>
+                        </div>
+                        <div class="score-label">Security Score</div>
+                    </div>
+
+                    <div class="threat-level">
+                        <div class="threat-indicator low"></div>
+                        <div class="threat-info">
+                            <span class="threat-status">LOW RISK</span>
+                            <span class="threat-description">No critical vulnerabilities detected</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="security-grid">
+                    <div class="security-card">
+                        <h3>Recent Scans</h3>
+                        <div class="scan-list" id="security-scans">
+                            <!-- Security scans will be populated here -->
+                        </div>
+                    </div>
+
+                    <div class="security-card">
+                        <h3>Vulnerabilities</h3>
+                        <div class="vulnerability-list" id="vulnerability-list">
+                            <!-- Vulnerabilities will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Page -->
+            <div id="page-settings" class="page">
+                <div class="page-header">
+                    <h1 class="page-title">Settings & Configuration</h1>
+                    <p class="page-subtitle">Customize your Script Oracle experience</p>
+                </div>
+
+                <div class="settings-grid">
+                    <div class="settings-card">
+                        <div class="card-header">
+                            <h3>Profile Settings</h3>
+                        </div>
+                        <div class="settings-section">
+                            <div class="form-group">
+                                <label class="form-label">Display Name</label>
+                                <input type="text" class="form-control" value="Alex Developer">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" value="alex@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Guild</label>
+                                <select class="form-control">
+                                    <option>Code Crusaders</option>
+                                    <option>Debug Dragons</option>
+                                    <option>Script Guardians</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <div class="card-header">
+                            <h3>Appearance</h3>
+                        </div>
+                        <div class="settings-section">
+                            <div class="form-group">
+                                <label class="form-label">Theme</label>
+                                <select class="form-control" id="theme-selector">
+                                    <option value="dark">Dark Mode (Cosmic)</option>
+                                    <option value="light">Light Mode</option>
+                                    <option value="auto">Auto (System)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Animation Level</label>
+                                <select class="form-control" id="animation-level">
+                                    <option value="full">Full Animations</option>
+                                    <option value="reduced">Reduced Motion</option>
+                                    <option value="none">No Animations</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <div class="card-header">
+                            <h3>Notifications</h3>
+                        </div>
+                        <div class="settings-section">
+                            <div class="form-group">
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked>
+                                        <span class="checkmark"></span>
+                                        XP and Level Up Notifications
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked>
+                                        <span class="checkmark"></span>
+                                        Badge Unlock Alerts
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                        Security Scan Results
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <div class="card-header">
+                            <h3>Integrations</h3>
+                        </div>
+                        <div class="settings-section">
+                            <div class="integration-item">
+                                <div class="integration-info">
+                                    <div class="integration-name">GitHub</div>
+                                    <div class="integration-status connected">Connected</div>
+                                </div>
+                                <button class="btn btn--sm btn--outline">Configure</button>
+                            </div>
+                            <div class="integration-item">
+                                <div class="integration-info">
+                                    <div class="integration-name">VS Code</div>
+                                    <div class="integration-status connected">Connected</div>
+                                </div>
+                                <button class="btn btn--sm btn--outline">Configure</button>
+                            </div>
+                            <div class="integration-item">
+                                <div class="integration-info">
+                                    <div class="integration-name">Slack</div>
+                                    <div class="integration-status disconnected">Not Connected</div>
+                                </div>
+                                <button class="btn btn--sm btn--primary">Connect</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <div class="card-header">
+                            <h3>Advanced</h3>
+                        </div>
+                        <div class="settings-section">
+                            <div class="form-group">
+                                <label class="form-label">API Key</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" value="sk-xxxxxxxxxxxxxxxx" readonly>
+                                    <button class="btn btn--sm btn--outline">Regenerate</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn--outline btn--danger">Reset All Settings</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin Panel Page -->
+            <div id="page-admin" class="page">
+                <div class="page-header">
+                    <h1 class="page-title">Admin Panel</h1>
+                    <p class="page-subtitle">Enterprise administration and user management</p>
+                </div>
+
+                <div class="admin-stats">
+                    <div class="admin-stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-info">
+                            <div class="stat-number">1,247</div>
+                            <div class="stat-title">Active Users</div>
+                        </div>
+                    </div>
+                    <div class="admin-stat-card">
+                        <div class="stat-icon">🏢</div>
+                        <div class="stat-info">
+                            <div class="stat-number">23</div>
+                            <div class="stat-title">Organizations</div>
+                        </div>
+                    </div>
+                    <div class="admin-stat-card">
+                        <div class="stat-icon">🔍</div>
+                        <div class="stat-info">
+                            <div class="stat-number">15,634</div>
+                            <div class="stat-title">Scans Today</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-grid">
+                    <div class="admin-card">
+                        <div class="card-header">
+                            <h3>Recent Users</h3>
+                            <button class="btn btn--sm btn--primary">Add User</button>
+                        </div>
+                        <div class="user-table">
+                            <div class="user-row header">
+                                <span class="user-name">Name</span>
+                                <span class="user-email">Email</span>
+                                <span class="user-role">Role</span>
+                                <span class="user-status">Status</span>
+                                <span class="user-actions">Actions</span>
+                            </div>
+                            <div class="user-row">
+                                <span class="user-name">Alex Developer</span>
+                                <span class="user-email">alex@example.com</span>
+                                <span class="user-role">Developer</span>
+                                <span class="user-status active">Active</span>
+                                <span class="user-actions">
+                                    <button class="btn btn--xs btn--outline">Edit</button>
+                                </span>
+                            </div>
+                            <div class="user-row">
+                                <span class="user-name">Sarah Chen</span>
+                                <span class="user-email">sarah@example.com</span>
+                                <span class="user-role">Admin</span>
+                                <span class="user-status active">Active</span>
+                                <span class="user-actions">
+                                    <button class="btn btn--xs btn--outline">Edit</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admin-card">
+                        <div class="card-header">
+                            <h3>System Health</h3>
+                        </div>
+                        <div class="health-metrics">
+                            <div class="health-item">
+                                <div class="health-label">CPU Usage</div>
+                                <div class="health-bar">
+                                    <div class="health-progress" style="width: 65%"></div>
+                                </div>
+                                <div class="health-value">65%</div>
+                            </div>
+                            <div class="health-item">
+                                <div class="health-label">Memory</div>
+                                <div class="health-bar">
+                                    <div class="health-progress" style="width: 78%"></div>
+                                </div>
+                                <div class="health-value">78%</div>
+                            </div>
+                            <div class="health-item">
+                                <div class="health-label">Storage</div>
+                                <div class="health-bar">
+                                    <div class="health-progress" style="width: 42%"></div>
+                                </div>
+                                <div class="health-value">42%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Page -->
+            <div id="page-analytics" class="page">
+                <div class="page-header">
+                    <h1 class="page-title">Analytics Dashboard</h1>
+                    <p class="page-subtitle">Comprehensive insights and performance metrics</p>
+                </div>
+
+                <div class="analytics-overview">
+                    <div class="metric-card">
+                        <div class="metric-title">Total Scans</div>
+                        <div class="metric-value">47,832</div>
+                        <div class="metric-change positive">+12.5%</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-title">Bugs Fixed</div>
+                        <div class="metric-value">3,247</div>
+                        <div class="metric-change positive">+8.3%</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-title">Code Coverage</div>
+                        <div class="metric-value">89.2%</div>
+                        <div class="metric-change positive">+2.1%</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-title">Response Time</div>
+                        <div class="metric-value">127ms</div>
+                        <div class="metric-change negative">-15.2%</div>
+                    </div>
+                </div>
+
+                <div class="analytics-charts">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Usage Trends</h3>
+                            <select class="form-control chart-select">
+                                <option>Last 30 Days</option>
+                                <option>Last 90 Days</option>
+                                <option>Last Year</option>
+                            </select>
+                        </div>
+                        <div class="chart-container">
+                            <div class="chart-placeholder">
+                                📊 Usage trends chart would be displayed here
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Performance Metrics</h3>
+                        </div>
+                        <div class="chart-container">
+                            <div class="chart-placeholder">
+                                📈 Performance metrics chart would be displayed here
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Cursor Trail -->
+    <div class="cursor-trail" id="cursor-trail"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
